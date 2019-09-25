@@ -109,19 +109,16 @@ fn get_tasks(project: String, due: String) -> Vec<Taskwarrior> {
     let mut def_project = String::from("project:");
     let mut def_due = String::from("due:");
 
-    if project.is_empty() {
-        let output = Command::new("task")
-            .arg(def_due)
-            .arg("+READY")
-            .arg("export")
-            .output()
-            .expect("failed to execute process");
-    }
-
-
     def_project.push_str(&project);
     def_due.push_str(&due);
 
+    let output = Command::new("task")
+        .arg(def_due)
+        .arg(def_project)
+        .arg("+READY")
+        .arg("export")
+        .output()
+        .expect("failed to execute process");
 
     let out = String::from_utf8(output.stdout).unwrap().to_owned();
     let json_out: Vec<Taskwarrior> = serde_json::from_str(&out).unwrap();
