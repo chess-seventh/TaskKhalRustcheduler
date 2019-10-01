@@ -126,3 +126,6 @@ fn get_tasks(project: String, due: String) -> Vec<Taskwarrior> {
     return json_out;
 }
 
+fn upload_ics_to_khal() {
+
+}
