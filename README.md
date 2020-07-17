@@ -1,6 +1,6 @@
 # Simple tool to export taskwarrior's due tasks into khal
 
-Author: Chess Seventh (Francesco) franci@rootbytes.org
+Author: Chess Seventh
 
 Second implementation tentative in  `rust` for this personal project.
 
